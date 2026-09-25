@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/riksdagen-se",
   "title": "Riksdagen Se",
   "description": "Riksdagen (Swedish Parliament) open data MCP.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/riksdagen-se",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-riksdagen-se",
