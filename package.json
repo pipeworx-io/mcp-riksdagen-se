@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-riksdagen-se",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Riksdagen (Swedish Parliament) open data MCP.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-7b70d176ad5c045b357c055fb4311a11c556b2be201ef1718e9a184f2d1a9e05",
-    "sourceCommit": "00c836ddeaecbdd581dcfb0fb1842efea104006e"
+    "sourceHash": "v1-83264b8aa09b889abc2a8afdd3933e6aa7a9643b934cdb113ccfbfc44d734fb4",
+    "sourceCommit": "6fe8fb3e01138dfc4ebe7d5c246503aab9278d06"
   }
 }
