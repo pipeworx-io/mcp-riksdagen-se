@@ -1,0 +1,89 @@
+[
+  {
+    "name": "search_documents",
+    "description": "Search Riksdagen documents (motions, propositions, committee reports, written questions). Filter by free-text query, document type, and date range. Results nest under dokumentlista.dokument[].",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "sok": {
+          "type": "string",
+          "description": "Free-text search query (Swedish), e.g. \"klimat\"."
+        },
+        "doktyp": {
+          "type": "string",
+          "description": "Document type code: mot=motion, prop=government proposition, bet=committee report, fr=written question, frs=answer, ip=interpellation, SFS=statute, prot=protocol."
+        },
+        "from": {
+          "type": "string",
+          "description": "Earliest date, YYYY-MM-DD (maps to from)."
+        },
+        "tom": {
+          "type": "string",
+          "description": "Latest date, YYYY-MM-DD (maps to tom)."
+        },
+        "sz": {
+          "type": "number",
+          "description": "Number of results (default 20, max ~500)."
+        }
+      }
+    }
+  },
+  {
+    "name": "list_members",
+    "description": "List current members of the Riksdag (ledamöter), optionally filtered by party and/or constituency. Results nest under personlista.person[] with Swedish fields (parti, valkrets, efternamn, tilltalsnamn).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "parti": {
+          "type": "string",
+          "description": "Party abbreviation, e.g. S, M, SD, C, V, KD, L, MP."
+        },
+        "kn": {
+          "type": "string",
+          "description": "Constituency name (valkrets), e.g. \"Stockholms län\"."
+        }
+      }
+    }
+  },
+  {
+    "name": "list_votes",
+    "description": "List individual member votes (voteringar) for a parliamentary session and committee-report designation. Results nest under voteringlista.votering[]; each row has namn, parti, valkrets and rost (Ja/Nej/Avstår/Frånvarande).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "rm": {
+          "type": "string",
+          "description": "Session/riksmöte, e.g. \"2023/24\". Required."
+        },
+        "bet": {
+          "type": "string",
+          "description": "Designation (beteckning), e.g. \"FiU1\". Required."
+        },
+        "sz": {
+          "type": "number",
+          "description": "Number of vote rows (default 50)."
+        }
+      },
+      "required": [
+        "rm",
+        "bet"
+      ]
+    }
+  },
+  {
+    "name": "get_document",
+    "description": "Fetch a single document's full metadata by its id (e.g. \"HD024189\" or \"hd024189\"). Result nests under dokumentstatus.dokument.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Document id, e.g. \"HD024189\". Required."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]

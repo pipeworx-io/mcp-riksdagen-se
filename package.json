@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-riksdagen-se",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Riksdagen (Swedish Parliament) open data MCP.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-riksdagen-se": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "riksdagen-se"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-riksdagen-se.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/riksdagen-se",
   "pipeworx": {
-    "sourceHash": "v1-83264b8aa09b889abc2a8afdd3933e6aa7a9643b934cdb113ccfbfc44d734fb4",
-    "sourceCommit": "6fe8fb3e01138dfc4ebe7d5c246503aab9278d06"
+    "mode": "gateway",
+    "slug": "riksdagen-se",
+    "gatewaySlug": "riksdagen-se",
+    "sourceHash": "v1-7c1df8988b27df21ffc7a3f633f76f4f37dffd7fc6bd7e1b3451c84909cbb816",
+    "sourceCommit": "6bae4cfa7b6a73bbe014dc8820a19c80c842b21e"
   }
 }
